@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import SettingsScreen from './screens/Settings';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
