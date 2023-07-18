@@ -10,7 +10,8 @@ const LightTheme = {
     blackText: '#121c2b',
     background: '#fff',
     grey: '#bfbfbf',
-    buttonBackground: '#1f87f017',
+    darkGrey: '#000000eb',
+    buttonBackground: '#1f87f013',
   },
 };
 

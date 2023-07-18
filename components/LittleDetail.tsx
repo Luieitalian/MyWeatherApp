@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native';
 import { IconButton, Button, Surface } from 'react-native-paper';
 import { IconSource } from 'react-native-paper/lib/typescript/src/components/Icon';
-import styles from '../styles/LittleDetail.style';
+import styles from '../styles/littleDetail.style';
 import LightTheme from '../styles/themes';
 
 type LittleDetailProps = {

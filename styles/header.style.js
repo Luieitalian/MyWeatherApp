@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
     backgroundColor: LightTheme.colors.primary,
     paddingTop: 10,
     paddingBottom: 30,
+    shadowRadius: 20,
+    shadowColor: 'black',
   },
   infoGroup: {
     flex: 1,
@@ -22,8 +24,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 22,
-    fontFamily: 'Barlow-Regular',
+    fontSize: 20,
+    fontFamily: 'Barlow-SemiBold',
     color: LightTheme.colors.background,
   },
   date: {
@@ -56,13 +58,19 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   conditionTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     alignSelf: 'flex-start',
     paddingHorizontal: 20,
   },
   conditionText: {
-    fontSize: 18,
+    fontSize: 17,
     fontFamily: 'Barlow-Regular',
     color: LightTheme.colors.whiteText,
+    letterSpacing: -0.4,
+  },
+  weatherIcon: {
+    paddingTop: 4,
   },
 });
 

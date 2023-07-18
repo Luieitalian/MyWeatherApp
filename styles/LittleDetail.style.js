@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily: 'Barlow-SemiBold',
     color: LightTheme.colors.blackText,
+    fontSize: 16,
   },
   infoGroup: {
     alignItems: 'flex-start',
