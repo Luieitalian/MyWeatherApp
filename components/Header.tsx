@@ -5,6 +5,8 @@ import { IconButton, Menu, Surface } from 'react-native-paper';
 import LightTheme from '../styles/themes';
 import { apiKeyContext } from '../contexts/apiKeyContext';
 
+
+
 const WEATHER_ICONS = {
   Sunny: 'white-balance-sunny',
   PartlyCloudy: 'weather-partly-cloudy',
@@ -14,7 +16,11 @@ const WEATHER_ICONS = {
   Clear: 'white-balance-sunny',
 }
 
-function Header() {
+type HeaderProps = {
+  location: string
+}
+
+function Header(props: HeaderProps) {
   const [settingsVisible, setSettingsVisible] = useState(false);
 
   const apikey = useContext(apiKeyContext);
@@ -26,7 +32,7 @@ function Header() {
       <View style={styles.container}>
         <View style={styles.upperBox}>
           <View style={styles.infoGroup}>
-            <Text style={styles.title}>{'LONDON'}</Text>
+            <Text style={styles.title}>{props.location}</Text>
             <Text style={styles.date}>{'9:00 PM Sept 8'}</Text>
           </View>
           <Menu onDismiss={closeMenu} anchor={<IconButton onPress={openMenu} theme={LightTheme} style={styles.iconButton} size={28} icon='dots-vertical' mode='contained' />} visible={settingsVisible}>
