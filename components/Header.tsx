@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, } from 'react-native';
 import styles from '../styles/header.style';
 import { IconButton, Menu, Surface } from 'react-native-paper';
 import LightTheme from '../styles/themes';
+import { apiKeyContext } from '../contexts/apiKeyContext';
 
 const WEATHER_ICONS = {
   Sunny: 'white-balance-sunny',
@@ -16,7 +17,7 @@ const WEATHER_ICONS = {
 function Header() {
   const [settingsVisible, setSettingsVisible] = useState(false);
 
-
+  const apikey = useContext(apiKeyContext);
   const openMenu = () => setSettingsVisible(true);
   const closeMenu = () => setSettingsVisible(false);
 
