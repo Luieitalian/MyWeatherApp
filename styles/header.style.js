@@ -1,19 +1,22 @@
 import { StyleSheet } from 'react-native';
 import LightTheme from './themes';
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: LightTheme.colors.primary,
+    paddingTop: 10,
+    paddingBottom: 30,
+  },
   infoGroup: {
     flex: 1,
     gap: 5,
   },
   upperBox: {
     flexDirection: 'row',
-    paddingHorizontal: 20,
-  },
-  container: {
-    flex: 5,
-    justifyContent: 'space-evenly',
     alignItems: 'center',
-    backgroundColor: LightTheme.colors.primary,
+    paddingHorizontal: 20,
   },
   button: {
     flex: 1,
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
     color: LightTheme.colors.greyedText,
   },
   temperature: {
-    fontSize: 170,
+    fontSize: 190,
     fontFamily: 'Barlow-Regular',
     color: LightTheme.colors.whiteText,
     letterSpacing: -10,
@@ -43,11 +46,23 @@ const styles = StyleSheet.create({
   },
   degree: {
     position: 'absolute',
-    fontSize: 170,
+    fontSize: 150,
     right: -55,
     color: LightTheme.colors.whiteText,
     textShadowColor: '#666666',
     textShadowRadius: 10,
+  },
+  iconButton: {
+    margin: 0,
+  },
+  conditionTextContainer: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 20,
+  },
+  conditionText: {
+    fontSize: 18,
+    fontFamily: 'Barlow-Regular',
+    color: LightTheme.colors.whiteText,
   },
 });
 

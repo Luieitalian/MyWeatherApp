@@ -1,12 +1,19 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import styles from '../styles/layout.style';
+import { ReactNode } from 'react';
 
-function Layout({ children }) {
+type LayoutProps = {
+  children: ReactNode,
+}
+
+function Layout({ children }: LayoutProps) {
   return (
     <View style={styles.container}>
-      {children}
-    </View>
+      <ScrollView>
+        {children}
+      </ScrollView>
+    </View >
   );
 }
 
