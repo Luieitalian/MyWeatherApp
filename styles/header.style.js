@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     color: LightTheme.colors.greyedText,
   },
   temperature: {
-    fontSize: 170,
+    fontSize: 160,
     fontFamily: 'Barlow-SemiBold',
     color: LightTheme.colors.whiteText,
     letterSpacing: -10,

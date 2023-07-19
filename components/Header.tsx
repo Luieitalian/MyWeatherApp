@@ -5,7 +5,7 @@ import { IconButton, Menu, Surface } from 'react-native-paper';
 import LightTheme from '../styles/themes';
 import { apiKeyContext } from '../contexts/apiKeyContext';
 import DateTime from './DateTime';
-import { coordsContext } from '../screens/Home';
+import Geolocation from '@react-native-community/geolocation';
 
 const WEATHER_ICONS: { [index: string]: any } = {
   "Sunny": 'white-balance-sunny',
@@ -16,30 +16,40 @@ const WEATHER_ICONS: { [index: string]: any } = {
   "Clear": 'white-balance-sunny',
 }
 
-
 function Header({ navigation }: any) {
+  const getCoords = () => {
+    Geolocation.getCurrentPosition(info => {
+      setCoords(() => `${info.coords.latitude},${info.coords.longitude}`);
+    }, error => {
+      console.log(JSON.stringify(error));
+    });
+  }
+
+
   const [settingsVisible, setSettingsVisible] = useState(false);
-  const [location, setLocation] = useState<string>('');
-  const [temperature, setTemperature] = useState<string>('');
-  const [condition, setCondition] = useState<string>('');
+  const [coords, setCoords] = useState<string | null>(null);
+  const [location, setLocation] = useState<string | null>(null);
+  const [temperature, setTemperature] = useState<string | null>(null);
+  const [condition, setCondition] = useState<string | null>(null);
   const openMenu = () => setSettingsVisible(true);
   const closeMenu = () => setSettingsVisible(false);
 
-  const coords = useContext(coordsContext);
   const apikey = useContext(apiKeyContext);
 
   const getDetails = async () => {
     const API_URL = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${coords}`
     const res = await fetch(API_URL);
     const data = await res.json();
-    setLocation(data.location.region);
+    setLocation(data.location.name);
     setTemperature(data.current.temp_c);
     setCondition(data.current.condition.text);
   }
 
   useEffect(() => {
+    getCoords();
     getDetails();
-  }, [])
+    console.log('coordinates: ', coords);
+  }, [coords])
 
   return (
     <Surface elevation={3}>
